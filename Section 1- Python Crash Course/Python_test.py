@@ -204,9 +204,8 @@ arr2 = np.arange(0,10,step=1,dtype=int).reshape(2,5)
 #arr = np.random.randint(1,100)  #.reshape(4,2) - > Discrete Uniform Distribution
 #arr = np.ones([3,4],dtype=int)
 arr = np.random.random_sample([3,4])
-print(arr)
+#print(arr)
 #np.random.randint()
 
+#Pandas
 
-a = np.arange(0,6,dtype=int).reshape(2,3)
-print(a)
