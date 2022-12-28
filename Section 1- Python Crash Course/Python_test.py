@@ -151,4 +151,62 @@ print(tup)
 print(tup.index(1,0,4))
 print(tup.count(2))
 '''
+import numpy as np
+listy = [1,2,3,4,5]
+#print(type(listy))
+arr = np.array(listy)
+#print(arr)
+#print(len(arr))
+#print(arr[3])
+#print(type(arr))
 
+#print(arr.shape)
+
+list1 = [1,2,3,4,5]
+list2 = [5,4,6,7,8]
+list3 = [2,3,4,5,9]
+
+arr = np.array([list1,list2,list3])
+#print(arr.shape)
+#print(arr.reshape(3,5))
+
+#print(arr[1:,2:4])
+#print(arr[1:2,1:4])
+
+arr = np.array([1,2,3,4,5,6,7,8])
+#print(type(arr))
+arr[3:]=100
+#print(arr)
+arr1 = arr
+arr1[3:]=500
+#print(arr1)
+#print(arr)
+arr1 = arr.copy()
+#print(arr1)
+arr1[3:] = 1000
+#print(arr1)
+#print(arr)
+
+
+arr = np.array([1,2,3,4,5])
+val = 2
+#print(arr[arr<val])
+#print(arr*val)
+
+
+arr1 = np.arange(0,10,step=1,dtype=int).reshape(2,5)
+arr2 = np.arange(0,10,step=1,dtype=int).reshape(2,5)
+#print(arr1*arr2)
+
+
+#arr = np.random.rand(3,5).reshape(5,3) - > Normal Distribution
+#arr = np.random.randn(4,4).reshape(8,2) - > Standard Normal Distribution
+#arr = np.random.randint(1,100)  #.reshape(4,2) - > Discrete Uniform Distribution
+#arr = np.ones([3,4],dtype=int)
+arr = np.random.random_sample([3,4])
+print(arr)
+#np.random.randint()
+
+
+a = np.arange(0,6,dtype=int).reshape(2,3)
+print(a)
