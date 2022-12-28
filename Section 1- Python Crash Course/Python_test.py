@@ -209,3 +209,24 @@ arr = np.random.random_sample([3,4])
 
 #Pandas
 
+import pandas as pd
+df = pd.DataFrame(np.arange(0,20).reshape(5,4),index=['r1','r2','r3','r4','r5'],columns=['c1','c2','c3','c4'],dtype=int)
+#print(df.head())
+#print(df['c1'])
+#print(df[['c1','c2']])
+
+#LOC
+#print(df.loc['r2'])
+
+#ILOC:
+#print(df.iloc[1:3,1:3])
+#print(df.iloc[0,:])
+
+#converting datafram to list :
+#print(type(df.iloc[:,:].values))
+
+#print(df.isnull().sum())
+
+#print(df.loc[0,:].value_counts())
+
+df.to_csv('test1.csv')
