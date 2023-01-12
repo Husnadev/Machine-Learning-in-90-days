@@ -295,3 +295,93 @@ df = pd.read_html('https://www.countrycode.org/',header=0)
 df100 = pd.read_excel('Book2.xlsx')
 
 print(type(df100))
+
+import matplotlib.pyplot as plt
+
+x = np.arange(0,10)
+y = np.arange(11,21)
+
+##plt.scatter(x=x,y=y,c='g',)
+##plt.xlabel('X axis')
+##plt.ylabel('Y axis')
+##plt.title('Scatter Plot')
+#print(#plt.show())
+
+#y = x**2
+##plt.plot(x,y,'d--')
+#plt.subplot(2,2,1)
+#plt.plot(x,y,'c--')
+#plt.subplot(2,2,2)
+#plt.plot(x,y,'b*--')
+#plt.subplot(2,2,3)
+#plt.plot(x,y,'g^--')
+#plt.subplot(2,2,4)
+#plt.plot(x,y,'r--')
+#plt.xlabel('X axis')
+#plt.ylabel('Y axis')
+#plt.title('Scatter Plot')
+m=1
+#x=np.arange(1,11)
+x = np.arange(1,11)
+
+c=5
+y = m*x + c
+#plt.plot(x,y,'g*--')
+plt.xlabel('X axis')
+plt.ylabel('Y axis')
+plt.title('Plot')
+
+#x = np.arange(0,np.pi*5,0.1)
+y_cos = np.cos(x)
+y_sin = np.sin(x)
+#plt.subplot(1,2,1)
+#plt.plot(x,y_cos,'g--')
+#plt.subplot(1,2,2)
+#plt.plot(x,y_sin,'b*--')
+
+#plt.bar(x,y,align='edge',color='g')
+#plt.show()
+
+
+z = np.array([10,20,30,40,50,60,70,80,90])
+#plt.hist(z,color='g')
+#plt.show()
+
+a = [215, 135, 250, 350,114]
+#plt.pie(a,explode=(0.1,0,0,0,0),colors=['red','blue','gold','yellowgreen','lightcoral'],shadow=True,labels=['a','b','c','d','e'],autopct='%1.1f%%')
+#plt.show()
+
+import seaborn as sns
+
+#df = sns.load_dataset('tips')
+#print(df)
+#print(df.head())
+#print(df.corr())
+#print(df.dtypes)
+#print(sns.heatmap(df.corr()))
+
+
+#distplot
+#print(sns.jointplot(data=df,x='tip',y='total_bill',kind='scatter'))
+#print(sns.pairplot(data=df,hue='sex'))
+#print(sns.displot(data=df,x='tip',bins=10))
+#print(df['sex'].value_counts())
+#sns.countplot(data=df,y='smoker')
+#print(sns.barplot(data=df,x='sex',y='total_bill',hue='smoker'))
+
+#sns.boxplot(data=df,x='sex',y='total_bill',hue='day')
+#sns.violinplot(data=df,x='tip',y='sex',bw='scott',hue='smoker')
+#plt.show()
+
+df = sns.load_dataset('iris')
+#print(df.head())
+print(df.corr())
+sns.heatmap(data=df.corr())
+sns.jointplot(data=df,x='sepal_width',y='sepal_length',kind='reg')
+sns.pairplot(data=df,x_vars='sepal_width',y_vars='sepal_length',hue='petal_length',kind='reg')
+sns.displot(data=df,x='sepal_width',y='sepal_length')
+sns.countplot(data=df,x='sepal_width',y='sepal_length')
+sns.barplot(data=df,x='sepal_width',y='sepal_length')
+sns.boxplot(data=df,x='sepal_width',y='sepal_length')
+sns.violinplot(data=df,x='sepal_width',y='sepal_length')
+plt.show()
