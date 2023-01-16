@@ -151,6 +151,7 @@ tup = ('a','b','c',1,2,3,4,2)
 #print(tup.index(1,0,4))
 #print(tup.count(2))
 '''
+'''
 import numpy as np
 listy = [1,2,3,4,5]
 ##print(type(listy))
@@ -373,15 +374,31 @@ import seaborn as sns
 #sns.violinplot(data=df,x='tip',y='sex',bw='scott',hue='smoker')
 #plt.show()
 
-df = sns.load_dataset('iris')
-#print(df.head())
-print(df.corr())
-sns.heatmap(data=df.corr())
-sns.jointplot(data=df,x='sepal_width',y='sepal_length',kind='reg')
-sns.pairplot(data=df,x_vars='sepal_width',y_vars='sepal_length',hue='petal_length',kind='reg')
-sns.displot(data=df,x='sepal_width',y='sepal_length')
-sns.countplot(data=df,x='sepal_width',y='sepal_length')
-sns.barplot(data=df,x='sepal_width',y='sepal_length')
-sns.boxplot(data=df,x='sepal_width',y='sepal_length')
-sns.violinplot(data=df,x='sepal_width',y='sepal_length')
+#df = sns.load_dataset('iris')
+#print(df.head())#
+#print(df.corr())
+#sns.heatmap(data=df.corr())
+#sns.jointplot(data=df,x='sepal_width',y='sepal_length',kind='reg')
+#sns.pairplot(data=df,x_vars='sepal_width',y_vars='sepal_length',hue='petal_length',kind='reg')
+#sns.displot(data=df,x='sepal_width',y='sepal_length',kind='kde')
+#sns.countplot(data=df,x='sepal_width',hue_order='sepal_length')
+#sns.barplot(data=df,x='sepal_width',y='sepal_length')
+#sns.boxplot(data=df,x='sepal_width',y='sepal_length')
+#sns.violinplot(data=df,x='sepal_width',y='sepal_length')
+#plt.show()
+'''
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+train = pd.read_csv('titanic_train.csv')
+#print(train.head())
+#print(train[train.isnull()].sum())
+#sns.heatmap(data=train.isnull(),yticklabels=False,cmap='viridis')
+#sns.countplot(data=train,x='Survived',hue='Sex')
+#sns.countplot(data=train,x='Survived',hue='Pclass')
+#sns.displot(data=train['Age'].dropna(),bins=40,kde=False)
+#sns.countplot(x='SibSp',data=train)
+sns.displot(data=train['SibSp'],kde=False,bins=40)
 plt.show()
