@@ -489,4 +489,37 @@ def mong(num):
     else:
         return print("{} is odd".format(num))
 
-print(list(map(mong,lst)))
+#print(list(map(mong,lst)))
+
+
+doc = [10,20,30,40]
+def docker(num):
+    return print("the number is {}".format(num))
+
+docker(10)
+list(map(docker,doc))    
+
+def huss():
+    return "hussain"
+
+a = huss()
+print(a)   
+
+even = lambda x : True if(x%2==0) else False
+#print(even(3))
+
+def funcky(num):
+    if num%2 == 1:
+        return True
+
+print(funcky(5))
+x = lambda num : num%2==1
+print(list(map(x,lst)))
+print(list(filter(x,lst)))
+lst = []
+define = lambda x :  [lst.append(i*i) for i in x]
+define([1,2,3,4,5])
+print(lst)
+
+com = [c for c in range(1,6) if c%2==0]
+print(com)
