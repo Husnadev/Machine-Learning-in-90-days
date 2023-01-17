@@ -386,7 +386,9 @@ import seaborn as sns
 #sns.boxplot(data=df,x='sepal_width',y='sepal_length')
 #sns.violinplot(data=df,x='sepal_width',y='sepal_length')
 #plt.show()
-'''
+
+
+
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -400,5 +402,91 @@ train = pd.read_csv('titanic_train.csv')
 #sns.countplot(data=train,x='Survived',hue='Pclass')
 #sns.displot(data=train['Age'].dropna(),bins=40,kde=False)
 #sns.countplot(x='SibSp',data=train)
-sns.displot(data=train['SibSp'],kde=False,bins=40)
-plt.show()
+#sns.displot(data=train['SibSp'],kde=False,bins=40)
+#sns.boxplot(data=train,x='Pclass',y='Age')
+#plt.show()
+def impute_age(cols):
+    Age = cols[0]
+    Pclass = cols[1]
+
+    if pd.isnull(Age):
+        if Pclass == 1 :
+            return 37
+        if Pclass == 2 :
+            return 29
+        else:
+            return 24
+    else:
+        return Age
+
+train['Age'] = train[['Age','Pclass']].apply(impute_age,axis=1) 
+print(train['Age'].isnull())
+train.drop('Cabin',axis=1,inplace=True)
+sns.heatmap(data=train.isnull())
+#plt.show()
+#print(train.head())
+#print(train.info())
+#print(train.describe())
+
+embark = pd.get_dummies(train['Embarked'],drop_first=True).head()
+sex = pd.get_dummies(train['Sex'],drop_first=True).head()
+train.drop(['Sex','Embarked','Name','Ticket'],axis=1,inplace=True)
+train = pd.concat([train,embark,sex],axis=1)
+#print(train.head())
+train.dropna(inplace=True)
+
+
+Independent_var = train.drop(['Survived'],axis=1)
+Dependent_var = train['Survived']
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(Independent_var,Dependent_var,random_state=201)
+
+
+
+from sklearn.linear_model import LogisticRegression
+logmodel = LogisticRegression()
+logmodel.fit(X_train,y_train)
+#print(logmodel)
+predictions = logmodel.predict(X_test)
+#print(predictions)
+
+from sklearn.metrics import confusion_matrix
+accuracy = confusion_matrix(y_test,predictions)
+#print(accuracy)
+
+from sklearn.metrics import accuracy_score
+accuracy = accuracy_score(y_test,predictions)
+print(accuracy)
+
+'''
+
+def hussy(*args,**kwargs):
+    print(args)
+    print(kwargs)
+
+hussy('hussybolt','yoyo',s='m',age=29)
+
+lst = [1,2,3,4,5,6,7]
+def evenoddsum(lst):
+    even = 0
+    odd = 0
+    for x in lst:
+        if x%2==0:
+            even += x
+        else:
+            odd += x
+    return print(even,odd)            
+
+
+evenoddsum(lst)
+
+
+lst = [1,2,3,4,5,6,7]
+def mong(num):
+    if num%2==0:
+        return print("{} is even".format(num))
+    else:
+        return print("{} is odd".format(num))
+
+print(list(map(mong,lst)))
